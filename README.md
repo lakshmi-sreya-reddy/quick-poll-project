@@ -17,3 +17,5 @@ This is a simple polling web application built using **HTML**, **CSS**, **JavaSc
    ```bash
    git clone https://github.com/lakshmi-sreya-reddy/quick-poll-project.git
    cd quick-poll-project
+## Setup Requirements
+ Make Sure Node.js is installed before running this project
