@@ -46,6 +46,7 @@ jobs:
         uses: aws-actions/amazon-ecr-login@v2
 
       # Step 8: Build, Tag, and Push to Amazon ECR
+      - name: Build, Tag, and Push to Amazon ECR
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           ECR_REPOSITORY: quick-poll-app
