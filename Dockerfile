@@ -1,11 +1,15 @@
+# Use Node.js image
 FROM node:18-alpine
 
+# Set working directory
 WORKDIR /app
 
-COPY package*.json ./
-RUN npm install
-
+# Copy all files
 COPY . .
 
+# Expose port (change 3000 if your server uses another port)
 EXPOSE 3000
-CMD ["npm", "start"]
+
+# Run the app
+CMD ["node", "server.js"]
+
