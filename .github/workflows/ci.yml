@@ -20,9 +20,10 @@ jobs:
         run: docker --version
 
       # Step 3: Build Docker image
-      - name: Build Docker Image
-        run: |
-          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/quick-poll-app:latest .
+      - name: Build Docker image
+        working-directory: ./
+        run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/quick-poll-app:latest .
+  
 
       # Step 4: Log in to Docker Hub
       - name: Log in to Docker Hub
