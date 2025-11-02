@@ -1,0 +1,12 @@
+{
+  "name": "quick-poll-app",
+  "version": "1.0.0",
+  "description": "A simple poll app using Node.js",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
