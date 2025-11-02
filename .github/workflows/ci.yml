@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Checkout code from the repository
+      # Step 1: Checkout code
       - name: Checkout code
         uses: actions/checkout@v4
 
@@ -21,9 +21,7 @@ jobs:
 
       # Step 3: Build Docker image
       - name: Build Docker image
-        working-directory: ./
         run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/quick-poll-app:latest .
-  
 
       # Step 4: Log in to Docker Hub
       - name: Log in to Docker Hub
@@ -39,15 +37,15 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ secrets.AWS_REGION }}
+          aws-region: ap-south-2
 
-      # Step 7: Log in to AWS ECR
+      # Step 7: Log in to Amazon ECR
       - name: Login to Amazon ECR
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v2
 
-      # Step 8: Build, Tag, and Push to Amazon ECR
-      - name: Build, Tag, and Push to Amazon ECR
+      # Step 8: Tag and Push to ECR
+      - name: Tag and Push Image to Amazon ECR
         env:
           AWS_REGION: ap-south-2
           ECR_REPOSITORY: simple-app
