@@ -48,10 +48,10 @@ jobs:
       # Step 8: Build, Tag, and Push to Amazon ECR
       - name: Build, Tag, and Push to Amazon ECR
         env:
-        aws_region: ap-south-2
-        ecr_repository: simple-app
-        
-
-        run: 
+          AWS_REGION: ap-south-2
+          ECR_REPOSITORY: simple-app
+          ECR_REGISTRY: 894669428220.dkr.ecr.ap-south-2.amazonaws.com
+        run: |
           docker tag ${{ secrets.DOCKERHUB_USERNAME }}/quick-poll-app:latest $ECR_REGISTRY/$ECR_REPOSITORY:latest
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
+
